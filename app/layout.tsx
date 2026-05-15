@@ -20,8 +20,12 @@ export const metadata: Metadata = {
     "Cryptocurrency",
     "forexpad56",
     "stockpad56",
-    "cryptopad56"
+    "cryptopad56",
   ],
+
+  verification: {
+    google: "v1PkSwMZ6jFlfoyAGuDAO1Q4YX0Ia8tMjK4Y41oIZC8",
+  },
 };
 
 export default function RootLayout({
