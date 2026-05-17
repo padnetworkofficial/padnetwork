@@ -1,108 +1,42 @@
 "use client";
 
-import { useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <main className="min-h-screen bg-black text-white">
-      {/* NAVBAR */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-black/95 border-b border-purple-700">
-        <div className="flex justify-between items-center px-4 md:px-10 py-4">
-          <div className="flex items-center gap-2 md:gap-3">
-            <img
-              src="/images/padnetworklogo.png"
-              alt="Pad Network"
-              className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover"
-            />
-            <h1 className="text-lg md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
-              PadNetwork
-            </h1>
-          </div>
-
-          {/* Desktop Menu */}
-          <div className="hidden md:flex gap-10 text-xl">
-            <a href="#home" className="hover:text-cyan-400 transition">
-              Home
-            </a>
-            <a href="#services" className="hover:text-cyan-400 transition">
-              Services
-            </a>
-            <a href="#about" className="hover:text-cyan-400 transition">
-              About
-            </a>
-          </div>
-
-          {/* Mobile Hamburger */}
-          <button
-            className="md:hidden text-3xl"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            ☰
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        {menuOpen && (
-          <div className="md:hidden flex flex-col text-center bg-black border-t border-purple-700">
-            <a
-              href="#home"
-              className="py-3 hover:bg-gray-900"
-              onClick={() => setMenuOpen(false)}
-            >
-              Home
-            </a>
-            <a
-              href="#services"
-              className="py-3 hover:bg-gray-900"
-              onClick={() => setMenuOpen(false)}
-            >
-              Services
-            </a>
-            <a
-              href="#about"
-              className="py-3 hover:bg-gray-900"
-              onClick={() => setMenuOpen(false)}
-            >
-              About
-            </a>
-          </div>
-        )}
-      </nav>
-
       {/* HERO */}
       <section
         id="home"
-        className="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-28 bg-gradient-to-b from-black to-gray-950"
+        className="min-h-[63vh] flex flex-col items-center justify-center text-center px-6 pt-16 pb-10 bg-gradient-to-b from-black to-gray-950"
       >
         <img
           src="/images/padnetworklogo.png"
           alt="Pad Network"
-          className="w-28 h-28 md:w-40 md:h-40 mb-8 rounded-full object-cover shadow-2xl"
+          className="w-20 h-20 md:w-28 md:h-28 mb-5 rounded-full object-cover shadow-2xl"
         />
 
-        <h1 className="text-5xl md:text-8xl font-extrabold bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+        <h1 className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
           PAD NETWORK
         </h1>
 
-        <p className="text-xl md:text-3xl mt-6 text-gray-300 font-semibold">
+        <p className="text-lg md:text-2xl mt-4 text-gray-300 font-semibold">
           Connect • Grow • Succeed
         </p>
 
-        <p className="mt-6 max-w-3xl text-base md:text-xl text-gray-400 leading-relaxed">
+        <p className="mt-4 max-w-3xl text-base md:text-xl text-gray-400 leading-relaxed">
           One powerful ecosystem for Stocks, Forex, and Crypto traders.
           Learn, grow, and build financial freedom.
         </p>
       </section>
 
       {/* SERVICES */}
-      <section id="services" className="py-20 px-6 md:px-8 bg-black">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-14 text-white">
+      <section id="services" className="py-16 px-6 md:px-8 bg-black">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-white">
           Our Ecosystem
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {/* STOCKPAD */}
           <div className="bg-gray-900 rounded-3xl overflow-hidden shadow-2xl border border-blue-700 hover:scale-105 transition duration-300">
             <video
@@ -125,6 +59,13 @@ export default function Home() {
               <p className="mt-4 text-lg text-gray-300">
                 Smart stock analysis & market growth strategies.
               </p>
+
+              <Link
+                href="/stockpad"
+                className="inline-block mt-8 bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-2xl font-bold text-lg transition"
+              >
+                Explore StockPad
+              </Link>
             </div>
           </div>
 
@@ -150,6 +91,13 @@ export default function Home() {
               <p className="mt-4 text-lg text-gray-300">
                 Forex insights, setups & global market intelligence.
               </p>
+
+              <Link
+                href="/forexpad"
+                className="inline-block mt-8 bg-purple-600 hover:bg-purple-700 px-8 py-4 rounded-2xl font-bold text-lg transition"
+              >
+                Explore ForexPad
+              </Link>
             </div>
           </div>
 
@@ -175,6 +123,13 @@ export default function Home() {
               <p className="mt-4 text-lg text-gray-300">
                 Crypto insights, opportunities & financial education.
               </p>
+
+              <Link
+                href="/cryptopad"
+                className="inline-block mt-8 bg-yellow-500 hover:bg-yellow-600 text-black px-8 py-4 rounded-2xl font-bold text-lg transition"
+              >
+                Explore CryptoPad
+              </Link>
             </div>
           </div>
         </div>
@@ -192,11 +147,6 @@ export default function Home() {
           trading growth, and financial freedom.
         </p>
       </section>
-
-      {/* FOOTER */}
-      <footer className="bg-black border-t border-purple-700 py-8 text-center text-gray-400">
-        © 2026 PadNetwork. All rights reserved.
-      </footer>
     </main>
   );
 }

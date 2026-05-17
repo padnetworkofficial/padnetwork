@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export const metadata: Metadata = {
   title: "PadNetwork | Stocks, Forex & Crypto Learning Platform",
@@ -26,6 +28,10 @@ export const metadata: Metadata = {
   verification: {
     google: "v1PkSwMZ6jFlfoyAGuDAO1Q4YX0Ia8tMjK4Y41oIZC8",
   },
+
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -35,7 +41,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="bg-black text-white">
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
